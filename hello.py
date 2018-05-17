@@ -4,7 +4,8 @@
 created by 2018-05-14
 @author linwei
 
-learn to operate the flask
+
+learn to operate the flask and make self website
 """
 
 from flask import *
