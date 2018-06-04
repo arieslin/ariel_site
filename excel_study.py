@@ -3,6 +3,7 @@
 import sys
 import os
 import xlwt
+import pdb
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -10,6 +11,7 @@ workbook = xlwt.Workbook()
 sheet = workbook.add_sheet('linwei')
 sheet.write(0,0,'A')
 for i in range(10):
+    pdb.set_trace()
     sheet.write(1,i,i)
 workbook.save('/Users/arieslin/python/test/xlwt.xls')
 
