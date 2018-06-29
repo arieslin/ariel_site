@@ -1,0 +1,17 @@
+#messageid列表的文件
+msgfile=E:\study\python\project\study_project\msgtofun\msg.xls
+
+#messageid和functionid的映射关系列表
+funcfile=E:\study\python\project\study_project\msgtofun\msg_func.h
+
+#functionid和keyid的映射关系列表
+keyfile=E:\study\python\project\study_project\msgtofun\func_key.xls
+
+
+ps:
+
+correspond_msg_key.py目的是将msgid，functionid，keyi关联起来。解析上面三个文件，得出结果输出到msg_to_key.xls里面。
+
+需要注意的是
+1. 将这个三个文件的路劲在config文件中配置好，
+2. 然后将config和correspond_msg_key.py放在同一级目录下，然后执行即可在同级路径下得到msg_to_key.xls
