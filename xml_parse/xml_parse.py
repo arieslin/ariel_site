@@ -10,11 +10,11 @@ import xlwt
 '''
 <?xml version="1.0" encoding="utf-8"?>
 <paralib>
-<imgmode mode="B">	
-	<class name="UProbe">
-		<paraName>ProbeID</paraName>	
-		<modeId>UNIV_SUB_MODE</modeId>
-		<messageId>MSG_PARAM_PROBE</messageId>
+<imgmode mode="a">
+	<class name="aaaa">
+		<paraName>adfds</paraName>
+		<modeId>fasdflkdj</modeId>
+		<messageId>dsfasldkfj</messageId>
 		<dep></dep>	
 	</class>	
 </imgmode>
