@@ -2,7 +2,7 @@
 msgfile=E:\study\python\project\study_project\msgtofun\msg.xls
 
 #messageid和functionid的映射关系列表
-funcfile=E:\study\python\project\study_project\msgtofun\msg_func.h
+funcfile=E:\study\python\project\study_project\msgtofun\msg_func.txt
 
 #functionid和keyid的映射关系列表
 keyfile=E:\study\python\project\study_project\msgtofun\func_key.xls

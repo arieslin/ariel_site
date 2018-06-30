@@ -4,7 +4,7 @@ from xlwt import *
 from xlutils import copy
 import os
 
-#解析PW或C的频点和探测深度
+#
 def parse_detect_value(str):
     list= []
     list.append(str.split(',')[0].split(':'))
@@ -12,7 +12,7 @@ def parse_detect_value(str):
     print list
     return list
 
-#填充血流方向准确性测试_tc-53998 or tc-54009 or tc-54013
+#tc-53998 or tc-54009 or tc-54013
 def fill_blood_direct(list, sheet, style, theory_value, flag):
     depth_index = 1
     for index, map in enumerate(list):
@@ -30,7 +30,7 @@ def fill_blood_direct(list, sheet, style, theory_value, flag):
             depth_index = depth_index + 1
     sheet.write_merge(1, depth_index - 1, 0, 0, theory_value, style)
 
-#填充灵敏度测试_tc-54001 or tc-54011 or tc-54014
+#_tc-54001 or tc-54011 or tc-54014
 def fill_sensitivity(list, sheet, style, row_max, flag):
     depth_index = 2
     width = 6
@@ -57,7 +57,7 @@ def fill_sensitivity(list, sheet, style, row_max, flag):
                                                                                                                           .format(depth_index + row*3 + 1, depth_index + row*3 + 2, depth_index + row*3 + 3)), style)  #缺少函数
             depth_index = depth_index + width
 
-#填充血流速度范围测试_tc-54002 or tc-54012
+#tc-54002 or tc-54012
 def fill_blood_range(list, sheet, style):
     depth_index = 2
     for index, map in enumerate(list):
@@ -67,7 +67,7 @@ def fill_blood_range(list, sheet, style):
     sheet.write(depth_index + len(list), 0, "Conclusion", style)
     sheet.write_merge(depth_index + len(list), depth_index + len(list), 1, 2, None, style)
 
-#填充取样容积位置准确性测试_tc-53999 or tc_54010
+#tc-53999 or tc_54010
 def fill_blood_deviation(list, sheet, style, flag):
     depth_index = 1
     width = 2
@@ -90,14 +90,14 @@ def fill_blood_deviation(list, sheet, style, flag):
     sheet.write_merge(1, depth_index - 1, 0, 0, theory, style)
 
 
-#填充PW血流方向准确性测试_tc-53998
+#tc-53998
 def fill_sheet13(list, sheet, style):
     theory_value = 'The spectrum line of 3.97 mm bionic vessel appears on the top of the baseline.' \
                    'The spectrum line of 7.95mm bionic vessel appears at the bottom of the baseline.'
     flag = 'pw'
     fill_blood_direct(list, sheet, style, theory_value, flag)
 
-#填充PW流速准确性测试_tc-54000
+#tc-54000
 def fill_sheet14(list, sheet, style):
     depth_index = 3
     width = 16
@@ -121,13 +121,13 @@ def fill_sheet14(list, sheet, style):
                         sheet.write(depth_index + row_angle + row * 4 + row_fre * 2, 13, Formula('ABS(M{0}/C{1}-1)'.format(depth_index + row_angle + row * 4 + row_fre * 2 + 1, depth_index + row * 4 + row_fre * 2 + 1)), style)
             depth_index = depth_index + width
 
-#填充灵敏度测试_tc-54001
+#tc-54001
 def fill_sheet15(list, sheet, style):
     flag = 'pw'
     row_max = 12
     fill_sensitivity(list, sheet, style, row_max, flag)
 
-#填充PW时间准确性测试_tc-53997
+#tc-53997
 def fill_sheet16(list, sheet, style):
     depth_index = 2
     width = 4
@@ -159,66 +159,66 @@ def fill_sheet16(list, sheet, style):
 
 
 
-#填充PW血流速度范围测试_tc-54002
+#_tc-54002
 def fill_sheet17(list, sheet, style):
     fill_blood_range(list, sheet, style)
 
 
-#填充取样容积位置准确性测试_tc-53999
+#_tc-53999
 def fill_sheet18(list, sheet, style):
     flag = 'pw'
     fill_blood_deviation(list, sheet, style, flag)
 
-#填充CW血流方向准确性测试_tc-54004
+#_tc-54004
 def fill_sheet19(list, sheet, style):
     pass
 
-#填充CW流速准确性测试_tc-54005
+#_tc-54005
 def fill_sheet20(list, sheet, style):
     pass
 
-#填充CW灵敏度测试_tc-54006
+#_tc-54006
 def fill_sheet21(list, sheet, style):
     pass
 
-#填充CW时间准确性测试_tc-54003
+#tc-54003
 def fill_sheet22(list, sheet, style):
     pass
 
-#填充CW血流速度范围测试_tc-54007
+#_tc-54007
 def fill_sheet23(list, sheet, style):
     pass
 
-#填充血流方向测试_tc-54009
+#_tc-54009
 def fill_sheet24(list, sheet, style):
-    theory_value = 'The color of 3.97 mm bionic vessel is red;' \
-                   'The color of 7.95 mm bionic vessel is blue;.'
+    theory_value = 'The color  is red;' \
+                   'The color  is blue;.'
     flag = 'c'
     fill_blood_direct(list, sheet, style, theory_value, flag)
 
-#填充灵敏度_tc-54011
+#tc-54011
 def fill_sheet25(list, sheet, style):
     flag = 'c'
     row_max = 14
     fill_sensitivity(list, sheet, style, row_max, flag)
 
-#填充Color血流速度范围测试_tc-54012
+#tc-54012
 def fill_sheet26(list, sheet, style):
     fill_blood_range(list, sheet, style)
 
-#填充血管中心位置偏差_tc-54010
+#_tc-54010
 def fill_sheet27(list, sheet, style):
     flag = 'c'
     fill_blood_deviation(list, sheet, style, flag)
 
-#填充DirPower血流方向测试_tc-54013
+#_tc-54013
 def fill_sheet28(list, sheet, style):
-    theory_value = 'The color of 3.97 mm bionic vessel is red;' \
-                   'The color of 7.95 mm bionic vessel is blue;.'
+    theory_value = 'The color  is red;' \
+                   'The color  is blue;.'
     flag = 'p'
     fill_blood_direct(list, sheet, style, theory_value, flag)
 
-#填充灵敏度_tc-54014
+#tc-54014
 def fill_sheet29(list, sheet, style):
     flag = 'p'
     row_max = 14

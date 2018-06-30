@@ -43,7 +43,7 @@ def fill_Lateral_Longitudinal(list, sheet, style, resolution = 'Lateral Resoluti
                 for y in range(6, 14):
                     sheet.write(x, y, None, style)
 
-#填充盲区_tc-53974    excel函数ok
+#填充tc-53974    excel函数ok
 def fill_sheet0(list, sheet, style):
     for index ,map in enumerate(list):
         if map['Probe'] != '' and map['Frequency'] != '' and map['Blind Area'] != '':
@@ -54,15 +54,15 @@ def fill_sheet0(list, sheet, style):
                 sheet.write(2+index, 2, (u'≤') + str(int(map['Blind Area'])), style)
                 sheet.write(2+index, 10, Formula('IF(AND(J{0}>0,J{0}<=INT(RIGHT(C{0}))),"Pass","Fail")'.format(3 + index)), style)
 
-#填充横向分辨力_tc-53975 excel函数fail
+#tc-53975 excel函数fail
 def fill_sheet1(list, sheet, style):
     fill_Lateral_Longitudinal(list, sheet, style)
 
-#填充纵向分辨力_tc-53976 excel函数fail
+#_tc-53976 excel函数fail
 def fill_sheet2(list, sheet, style):
     fill_Lateral_Longitudinal(list, sheet, style, resolution= 'Longitudinal Resolution')
 
-#填充最大探测深度_tc-53977  excel函数ok
+#_tc-53977  excel函数ok
 def fill_sheet3(list, sheet, style):
     for index ,map in enumerate(list):
         if map['Probe'] != '' and map['Frequency'] != '' and map['Detect Depth'] != '':
@@ -73,7 +73,7 @@ def fill_sheet3(list, sheet, style):
                 sheet.write(2+index, 2, (u'≥') + str(int(map['Detect Depth'])), style)
             sheet.write(2+index, 10, Formula('IF(J{0}>=INT(RIGHT(C{0},LEN(C{0})-1)),"Pass","Fail")'.format(3 + index)), style)
 
-#填充几何位置精度_tc-53978
+#tc-53978
 def fill_sheet4(list, sheet, style):
     depth_index = 2
     width = 5
@@ -96,7 +96,7 @@ def fill_sheet4(list, sheet, style):
                 sheet.write(x, 9, None, style)
                 sheet.write(x, 17, None, style)
 
-#填充切片厚度_tc-53980
+#tc-53980
 def fill_sheet5(list, sheet, style):
     depth_index = 2
     width = 3
@@ -128,7 +128,7 @@ def fill_sheet5(list, sheet, style):
                                                                                   'O{2}>0,O{2}<=(INT(RIGHT(C{0},LEN(C{0})-1)))),"Pass","Fail")'.format(depth_index+1, depth_index+2, depth_index+3)), style)
             depth_index = depth_index + width
 
-#填充距离_tc-53981
+#_tc-53981
 def fill_sheet6(list, sheet, style):
     depth_index = 1
     width = 5
@@ -156,7 +156,7 @@ def fill_sheet6(list, sheet, style):
             depth_index = depth_index + width
     sheet.write_merge(1, depth_index - 1, 0, 0, str(map['Expected Distance']*100) + u'%', style)
 
-#填充面积、周长（描记法和椭圆法）_tc-53984
+#_tc-53984
 def fill_sheet7(list, sheet, style):
     depth_index = 3
     for index, map in enumerate(list):
@@ -185,7 +185,7 @@ def fill_sheet7(list, sheet, style):
     sheet.write_merge(3, depth_index-1, 0, 0, str(map['Expected Area']*100) + u'%', style)
     sheet.write_merge(3, depth_index - 1, 1, 1, str(map['Expected Circumference'] * 100) + u'%', style)
 
-#填充角度tc_53985
+#tc_53985
 def fill_sheet8(list, sheet, style):
     depth_index = 2
     width = 4
@@ -205,7 +205,7 @@ def fill_sheet8(list, sheet, style):
     sheet.write_merge(2, depth_index - 1, 0, 0, str(map['Expected Angle'] * 100) + u'%', style)
 
 
-#填充囊性病灶直径误差_tc-53986
+#tc-53986
 def fill_sheet9(list, sheet, style):
     depth_index = 2
     width = 4
@@ -231,7 +231,7 @@ def fill_sheet9(list, sheet, style):
             depth_index = depth_index + width
     sheet.write_merge(2, depth_index - 1, 0, 0, instruction, style)
 
-#填充距离tc-53991
+#tc-53991
 def fill_sheet10(list, sheet, style):
     depth_index = 2
     width = 6
@@ -251,7 +251,7 @@ def fill_sheet10(list, sheet, style):
     sheet.write_merge(2, depth_index - 1, 0, 0, str(map['Expected Distance'] * 100) + u'%', style)
 
 
-#填充时间、心率_tc-53987
+#_tc-53987
 def fill_sheet11(list, sheet, style):
     depth_index = 2
     width = 4
@@ -275,7 +275,7 @@ def fill_sheet11(list, sheet, style):
     sheet.write_merge(2, depth_index - 1, 0, 0, str(map['Expected Time'] * 100) + u'%', style)
     sheet.write_merge(2, depth_index - 1, 1, 1, str(map['Expected Heart Rate'] * 100) + u'%', style)
 
-#填充体积_tc-53992
+#tc-53992
 def fill_sheet12(list, sheet, style):
     depth_index = 2
     for index, map in enumerate(list):

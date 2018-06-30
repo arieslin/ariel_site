@@ -7,7 +7,7 @@ from grey_filling import *
 from doppler_filling import *
 
 
-#解析出每个探头的精度指标的列表
+#解析出指标的列表
 def get_probe_info(file, list):
     workbook = xlrd.open_workbook(file)
     original = workbook.sheet_by_name(u"Sheet1")
@@ -30,7 +30,7 @@ def fill_probe_info(list, module_path, result_path):
         eval(fun_name)(list, sheet_index, style)
     wtbook.save(result_path)
 
-#构造精度表格的样式
+#构造表格的样式
 def set_style():
     borders = Borders()
     borders.left = 1
